@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OwSynth</title>
+  <link rel="stylesheet" href="player.css">
+</head>
+
+<body>
+  <div class="player-container">
+
+    <div class="progress-row">
+      <div class="progress-container" id="progress-bar">
+        <div class="progress-track"></div>
+        <div class="progress-thumb-container">
+          <div id="progress-fill" style="width: 0%; height: 100%; position: relative;">
+            <div class="progress-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <button class="btn" id="play-btn" title="Play">
+        <svg viewBox="0 0 16 16">
+          <path d="M4 3v10l8-5z" />
+        </svg>
+      </button>
+
+      <button class="btn" id="pause-btn" title="Pause" style="display: none;">
+        <svg viewBox="0 0 16 16">
+          <path d="M4 3h3v10H4zm5 0h3v10H9z" />
+        </svg>
+      </button>
+
+      <button class="btn" id="stop-btn" title="Stop">
+        <svg viewBox="0 0 16 16">
+          <rect x="3" y="3" width="10" height="10" />
+        </svg>
+      </button>
+
+      <div class="separator"></div>
+
+      <div class="info-display">
+        <canvas id="viz-canvas" width="40" height="15"></canvas>
+        <span class="track-name-scroll" id="track-name">OwSynth</span>
+        <div class="time-wrapper">
+          <span id="current-time">0:00</span><span class="total-time-container"> / <span
+              id="total-time">0:00</span></span>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <button class="btn" id="menu-btn" title="Menu">
+        <span style="font-weight: bold; font-size: 8px;">&raquo;</span>
+      </button>
+
+      <div class="separator"></div>
+
+      <div class="volume-control">
+        <img src="icons/speaker.png" class="volume-icon" alt="Vol">
+        <input type="range" id="volume-slider" min="0" max="100" value="80" class="volume-slider">
+      </div>
+
+    </div>
+
+    <div id="player-menu" class="context-menu" style="display: none;">
+      <div class="menu-item" id="download-btn">Save MIDI...</div>
+      <div class="menu-item" id="settings-btn">Properties...</div>
+    </div>
+
+    <div style="display: none;">
+      <span id="status-text"></span>
+      <span id="bpm-text"></span>
+    </div>
+
+  </div>
+  <script src="player.js"></script>
+</body>
+
+</html>
